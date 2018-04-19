@@ -70,4 +70,4 @@ class KnownValues(unittest.TestCase): # (1)
             self.assertEqual(integer, result) # (6)
 # TODO: add more test cases here
 if __name__ == "__main__":
-unittest.main()
+    unittest.main()
