@@ -22,37 +22,20 @@ class KnownValues(unittest.TestCase): # (1)
             res = roman.binsearch(lst,key)
             self.assertEqual(resK, res)
 
-
-
 class BinSearchFailedInput(unittest.TestCase):
     def testNotList(self):
         """toRoman should fail with non-integer input"""
-        self.assertRaises(roman.InvalidArgument, roman.binsearch, (0.5,1))
+        self.assertRaises(roman.InvalidArgument, roman.binsearch, 0.5,1)
 
 class SanityCheck(unittest.TestCase):
     def testOutOfRange(self):
-        """toRoman should fail with non-integer input"""
-        self.assertRaises(roman.InvalidArgument, roman.binsearch, (0.5,1))
-    def testSanity1(self):
-        """fromRoman(toRoman(n))==n for all n"""
-        for integer in range(1, 4000):
-            numeral = roman.toRoman(integer)
-            result = roman.fromRoman(numeral)
-            self.assertEqual(integer, result)
-
-class CaseCheck(unittest.TestCase):
-    def testToRomanCase(self):
-        """toRoman should always return uppercase"""
-        for integer in range(1, 4000):
-            numeral = roman.toRoman(integer)
-            self.assertEqual(numeral, numeral.upper()) # (1)
-    def testFromRomanCase(self):
-        """fromRoman should only accept uppercase input"""
-        for integer in range(1, 4000):
-            numeral = roman.toRoman(integer)
-            roman.fromRoman(numeral.upper()) # (2) (3)
-            self.assertRaises(roman.InvalidRomanNumeralError,
-            roman.fromRoman, numeral.lower())
+        self.assertRaises(roman.InvalidIdx, roman.binsearch, [1,2,3,4],5)
+    def testGoBack(self):
+        a = [1,2,3,4,6,8,11,13,15,17]
+        key = binSearch(a, 8)
+        self.assertEqual(a[index], key)
+    def testNotFound(self):
+        self.assertRaises(roman.NotFound, roman.binsearch, [1,2,3,9],5)
 
 if __name__ == "__main__":
     unittest.main()
