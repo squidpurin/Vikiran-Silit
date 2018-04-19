@@ -1,5 +1,5 @@
 """romantest.py - unit test for roman.py"""
-import roman0 as roman
+import roman4 as roman
 import unittest
 class KnownValues(unittest.TestCase): # (1)
     knownValues = ( (1, 'I'),
@@ -111,13 +111,13 @@ class CaseCheck(unittest.TestCase):
         for integer in range(1, 4000):
             numeral = roman.toRoman(integer)
             self.assertEqual(numeral, numeral.upper()) # (1)
-        def testFromRomanCase(self):
-            """fromRoman should only accept uppercase input"""
-            for integer in range(1, 4000):
-                numeral = roman.toRoman(integer)
-                roman.fromRoman(numeral.upper()) # (2) (3)
-                self.assertRaises(roman.InvalidRomanNumeralError,
-                roman.fromRoman, numeral.lower())
+    def testFromRomanCase(self):
+        """fromRoman should only accept uppercase input"""
+        for integer in range(1, 4000):
+            numeral = roman.toRoman(integer)
+            roman.fromRoman(numeral.upper()) # (2) (3)
+            self.assertRaises(roman.InvalidRomanNumeralError,
+            roman.fromRoman, numeral.lower())
 
 if __name__ == "__main__":
     unittest.main()
