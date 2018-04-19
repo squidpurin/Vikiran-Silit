@@ -1,5 +1,5 @@
 """romantest.py - unit test for roman.py"""
-import roman4 as roman
+import roman3 as roman
 import unittest
 class KnownValues(unittest.TestCase): # (1)
     knownValues = ( (1, 'I'),
