@@ -1,4 +1,7 @@
 import unittest
+class OutOfRangeError(Exception):
+    pass
+
 class Stack:
     def __init__(self):
         self.elem = []
@@ -11,10 +14,14 @@ class Stack:
     def size(self):
         return len(self.elem)
     def peek(self):
+        if(self.size() == 0):
+            raise OutOfRangeError
         if self.size()!= 0:
             return self.elem[-1]
         return None
     def pop(self):
+        if self.size() == 0:
+            raise OutOfRangeError
         x = self.elem[-1]
         del self.elem[-1]
         return x
@@ -49,6 +56,10 @@ class StackTest(unittest.TestCase):
             self.s.pop()
         self.assertTrue(self.s.isEmpty())
         
+    def testPopEmptyStack(self):
+        self.assertRaises(OutOfRangeError, self.s.pop)
+    def testPeekEmptyStack(self):
+        self.assertRaises(OutOfRangeError, self.s.peek)
 
 if __name__ == "__main__":
     unittest.main(verbosity = 2)
@@ -65,4 +76,4 @@ def suite2():
     return suite
 
 unittest.TextTestRunner().run(suite())
-unittest.TextTestRunner(verbosity=2).run(suite2())
+#unittest.TextTestRunner(verbosity=2).run(suite2())
