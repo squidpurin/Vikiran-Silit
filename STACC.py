@@ -29,7 +29,7 @@ class StackTest(unittest.TestCase):
         nPushes = 6
         for i in range(nPushes):
             self.s.push("item")
-            self.assertFalse(self.s.isEmpty())
+        self.assertFalse(self.s.isEmpty())
         self.assertEqual(self.s.size(), nPushes)
     def testPushPop(self): # (3)
         size = self.s.size()
@@ -37,6 +37,18 @@ class StackTest(unittest.TestCase):
         self.s.push(item)
         self.assertEqual(self.s.pop(), item)
         self.assertEqual(self.s.size(), size)
+    def testPushPeek(self): # (4)
+        item = "Python"
+        self.s.push(item)
+        size = self.s.size()
+        self.s.peek()
+        self.assertEqual(self.s.size(), size)
+    def testNPop(self): # (5)
+        size = self.s.size()
+        for i in range(size):
+            self.s.pop()
+        self.assertTrue(self.s.isEmpty())
+        
 
 if __name__ == "__main__":
     unittest.main(verbosity = 2)
