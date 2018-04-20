@@ -18,23 +18,10 @@ class Calculator:
         self.setAccumulator(a)
         return a
     def divide(self,x):
+        if x == 0:
+            raise ZeroDivisionError
         a = self.acc / x
         self.setAccumulator(a)
         return a
     def getStatus(self):
         return "Result: " + str(self.getAccumulator())
-
-def main():
-    calculator = Calculator(0)
-    print(calculator.getStatus())
-    calculator.add(1)
-    print(calculator.getStatus())
-    calculator.subtract(1)
-    print(calculator.getStatus())
-    calculator.add(2)
-    print(calculator.getStatus())
-    calculator.multiply(2)
-    print(calculator.getStatus())
-    calculator.divide(4)
-    print(calculator.getStatus())
-main()
