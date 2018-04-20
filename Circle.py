@@ -5,7 +5,7 @@ class Circle:
     def __init__(self, x,y,radius):
         self.x = x
         self.y = y
-        rself.radius = radius
+        self.radius = radius
         self.pi = math.pi
     def getArea(self):
         return self.pi * (radius ** 2)
