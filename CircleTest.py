@@ -2,7 +2,6 @@ import math
 import unittest
 from precision import *
 from Circle import *
-
 class CircleTest(unittest.TestCase):
     def setUp(self):
         self.c = Circle(0,0,10)
@@ -20,3 +19,5 @@ class CircleTest(unittest.TestCase):
         rad = self.c.radius
         checkPos = rad >= 0
         self.assertTrue(checkPos)
+    def testDataType(self):
+        self.assertRaises(TypeError,self.c.x, self.c.y,self.c.radius)
