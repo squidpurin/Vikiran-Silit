@@ -20,7 +20,7 @@ class CircleTest(unittest.TestCase):
         checkPos = rad >= 0
         self.assertTrue(checkPos)
     def testDataType(self): # Test for numeric datatype
-        self.assertRaises(TypeError,self.c.x, self.c.y,self.c.radius)
+        self.assertRaises(TypeError,Circle, [1], [2], [3])
         self.assertRaises(TypeError,self.c.move, [1,2,3], [3])
 
 def suite():

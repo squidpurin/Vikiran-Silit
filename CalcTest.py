@@ -27,6 +27,13 @@ class CalcTest(unittest.TestCase):
         self.assertRaises(TypeError, self.c.subtract, [1])
         self.assertRaises(TypeError, self.c.multiply, [1])
         self.assertRaises(TypeError, self.c.divide, [1])
+    def testSetGet(self):
+        x = 5
+        self.c.setAccumulator(x)
+        y = self.c.getAccumulator()
+        self.assertEqual(x, y)
+    def testStatus(self):
+        self.assertEqual(self.c.getStatus(), "Result: " + str(self.c.getAccumulator()))
 
 def suite():
     suite = unittest.TestSuite()
