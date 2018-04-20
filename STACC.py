@@ -55,14 +55,10 @@ class StackTest(unittest.TestCase):
         for i in range(size):
             self.s.pop()
         self.assertTrue(self.s.isEmpty())
-        
-    def testPopEmptyStack(self):
+    def testPopEmptyStack(self): #6
         self.assertRaises(OutOfRangeError, self.s.pop)
-    def testPeekEmptyStack(self):
+    def testPeekEmptyStack(self): #7
         self.assertRaises(OutOfRangeError, self.s.peek)
-
-if __name__ == "__main__":
-    unittest.main(verbosity = 2)
 
 def suite():
     suite = unittest.TestSuite()
